@@ -6,8 +6,13 @@ import 'package:flutter_svg/svg.dart';
 import '../../../constants.dart';
 
 class RecentFiles extends StatelessWidget {
+  final String title;
+  final bool isShowTitle;
+
   const RecentFiles({
     Key? key,
+    required this.title,
+    required this.isShowTitle,
   }) : super(key: key);
 
   @override
@@ -15,15 +20,18 @@ class RecentFiles extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
-        color: secondaryColor,
+        color: sideColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Recent Files",
-            style: Theme.of(context).textTheme.subtitle1,
+          Visibility(
+            visible: isShowTitle,
+            child: Text(
+              this.title,
+              style: TextStyle(fontFamily: "IranYekan", fontSize: 15),
+            ),
           ),
           SizedBox(
             width: double.infinity,
@@ -32,13 +40,36 @@ class RecentFiles extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: Text(
+                    "شناسه فاکتور",
+                    style: Theme.of(context).textTheme.subtitle2?.apply(
+                          fontFamily: "IranYekan",
+                        ),
+                  ),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text(
+                    "تاریخ صدور",
+                    style: Theme.of(context).textTheme.subtitle2?.apply(
+                          fontFamily: "IranYekan",
+                        ),
+                  ),
                 ),
                 DataColumn(
-                  label: Text("Size"),
+                  label: Text(
+                    "قابل پرداخت(ریال)",
+                    style: Theme.of(context).textTheme.subtitle2?.apply(
+                          fontFamily: "IranYekan",
+                        ),
+                  ),
+                ),
+                DataColumn(
+                  label: Text(
+                    "وضعیت",
+                    style: Theme.of(context).textTheme.subtitle2?.apply(
+                          fontFamily: "IranYekan",
+                        ),
+                  ),
                 ),
               ],
               rows: List.generate(
@@ -51,6 +82,17 @@ class RecentFiles extends StatelessWidget {
       ),
     );
   }
+}
+
+DataColumn createHeader(BuildContext context, String item) {
+  return DataColumn(
+    label: Text(
+      item,
+      style: Theme.of(context).textTheme.subtitle2?.apply(
+            fontFamily: "IranYekan",
+          ),
+    ),
+  );
 }
 
 DataRow recentFileDataRow(RecentFile fileInfo) {
@@ -66,13 +108,26 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
+              child: Text(
+                fileInfo.title!,
+                style: TextStyle(fontFamily: "IranYekan"),
+              ),
             ),
           ],
         ),
       ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(
+        fileInfo.date!,
+        style: TextStyle(fontFamily: "IranYekan"),
+      )),
+      DataCell(Text(
+        fileInfo.size!,
+        style: TextStyle(fontFamily: "IranYekan"),
+      )),
+      DataCell(Text(
+        fileInfo.status!,
+        style: TextStyle(fontFamily: "IranYekan"),
+      )),
     ],
   );
 }

@@ -33,6 +33,7 @@ dependencies:
   fl_chart: ^0.36.1
   provider: ^5.0.0
   data_table_2: ^2.0.3
+  get: ^4.3.6
 
 dev_dependencies:
   flutter_test:
@@ -65,17 +66,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: IranYekan
+      fonts:
+        - asset: assets/fonts/IranYekan/IRANYekanLightFaNum.ttf
+    - family: IranSans
+      fonts:
+        - asset: assets/fonts/IranSans/iran_sans_r.ttf
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

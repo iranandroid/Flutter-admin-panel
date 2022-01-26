@@ -1,5 +1,12 @@
+import 'package:admin/constants.dart';
+import 'package:admin/screens/dashboard/dashboard_screen.dart';
+import 'package:admin/screens/factor/factor_screen.dart';
+import 'package:admin/screens/transaction/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../../../controllers/main/MainScreenController.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -8,51 +15,48 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<MainScreenContorller>();
+
     return Drawer(
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/logo.png",
+                  width: 50,
+                  height: 50,
+                ),
+                SizedBox(height: defaultPadding),
+                Text("Solar Panel")
+              ],
+            ),
           ),
           DrawerListTile(
-            title: "Dashboard",
+            title: "میزکار",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              controller.screenTitle.value = "میزکار";
+              controller.screenWidget.value = DashboardScreen();
+            },
           ),
           DrawerListTile(
-            title: "Transaction",
+            title: "تراکنش ها",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            press: () {
+              controller.screenTitle.value = "لیست تراکنش ها";
+              controller.screenWidget.value = new TransactionScreen();
+            },
           ),
           DrawerListTile(
-            title: "Task",
+            title: "فاکتورها",
             svgSrc: "assets/icons/menu_task.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Documents",
-            svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Store",
-            svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Notification",
-            svgSrc: "assets/icons/menu_notification.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Profile",
-            svgSrc: "assets/icons/menu_profile.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Settings",
-            svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              controller.screenTitle.value = "فاکتورها";
+              controller.screenWidget.value = new FactorScreen();
+            },
           ),
         ],
       ),
@@ -79,12 +83,13 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: 0.0,
       leading: SvgPicture.asset(
         svgSrc,
-        color: Colors.white54,
+        color: textColor,
         height: 16,
       ),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white54),
+        style:
+            TextStyle(color: textColor, fontFamily: "IranYekan", fontSize: 13),
       ),
     );
   }

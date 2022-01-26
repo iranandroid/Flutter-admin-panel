@@ -1,50 +1,43 @@
 class RecentFile {
-  final String? icon, title, date, size;
+  final String? icon, title, date, size, status;
 
-  RecentFile({this.icon, this.title, this.date, this.size});
+  RecentFile({this.icon, this.title, this.date, this.size, this.status});
 }
 
 List demoRecentFiles = [
   RecentFile(
     icon: "assets/icons/xd_file.svg",
-    title: "XD File",
+    title: "خرید کارت پستال عید",
     date: "01-03-2021",
     size: "3.5mb",
+    status: "موفق",
   ),
   RecentFile(
     icon: "assets/icons/Figma_file.svg",
-    title: "Figma File",
+    title: "خرید کارت پستال عید",
     date: "27-02-2021",
     size: "19.0mb",
+    status: "موفق",
   ),
   RecentFile(
     icon: "assets/icons/doc_file.svg",
-    title: "Document",
+    title: "خرید کارت پستال عید",
     date: "23-02-2021",
     size: "32.5mb",
+    status: "موفق",
   ),
   RecentFile(
     icon: "assets/icons/sound_file.svg",
-    title: "Sound File",
+    title: "خرید کارت پستال عید",
     date: "21-02-2021",
     size: "3.5mb",
+    status: "موفق",
   ),
   RecentFile(
     icon: "assets/icons/media_file.svg",
-    title: "Media File",
+    title: "خرید کارت پستال عید",
     date: "23-02-2021",
     size: "2.5gb",
-  ),
-  RecentFile(
-    icon: "assets/icons/pdf_file.svg",
-    title: "Sales PDF",
-    date: "25-02-2021",
-    size: "3.5mb",
-  ),
-  RecentFile(
-    icon: "assets/icons/excle_file.svg",
-    title: "Excel File",
-    date: "25-02-2021",
-    size: "34.5mb",
-  ),
+    status: "موفق",
+  )
 ];
