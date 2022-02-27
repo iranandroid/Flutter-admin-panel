@@ -3,7 +3,6 @@ import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'controllers/main/MainScreenController.dart';
@@ -20,14 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'پانتیف',
+      title: 'Solar panel',
       theme: ThemeData.dark().copyWith(
         dividerColor: bgColor,
         scaffoldBackgroundColor: bgColor,
-        textTheme:
-            GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(
-          bodyColor: textColor,
-        ),
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: textColor,
+            ),
         canvasColor: sideColor,
       ),
       home: MultiProvider(

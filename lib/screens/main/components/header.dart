@@ -1,5 +1,4 @@
 import 'package:admin/controllers/MenuController.dart';
-import 'package:admin/controllers/main/HeaderController.dart';
 import 'package:admin/controllers/main/MainScreenController.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +52,7 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton<int>(
       tooltip: "",
+      offset: Offset(0, 45),
       color: Colors.white,
       itemBuilder: (context) => <PopupMenuEntry<int>>[
         PopupMenuItem(
